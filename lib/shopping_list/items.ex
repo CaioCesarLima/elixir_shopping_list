@@ -18,7 +18,8 @@ defmodule ShoppingList.Items do
 
   """
   def list_items do
-    Repo.all(Item)
+    query = from q in Item, order_by: [desc: q.bought]
+    Repo.all(query)
   end
 
   @doc """

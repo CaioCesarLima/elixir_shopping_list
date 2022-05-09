@@ -1,0 +1,31 @@
+<h1>Lista de compras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Comprado</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for item <- @items do %>
+    <tr>
+      <td><%= item.name %></td>
+      <%= if item.bought do %>
+        <td>Comprado</td>
+      <% else %>
+        <td>Não comprado</td>
+      <% end %>
+
+      <td>
+        <span><%= link "Detalhes", to: Routes.item_path(@conn, :show, item) %></span>
+        <span><%= link "Deletar", to: Routes.item_path(@conn, :delete, item), method: :delete, data: [confirm: "Você tem certeza?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "Novo Item", to: Routes.item_path(@conn, :new) %></span>

@@ -1,0 +1,18 @@
+<h1>Show Item</h1>
+
+<ul>
+
+  <li>
+    <strong>Noma:</strong>
+    <%= @item.name %>
+  </li>
+
+  <li>
+    <strong>Comprado:</strong>
+    <%= @item.bought %>
+  </li>
+
+</ul>
+
+<span><%= link "Editar", to: Routes.item_path(@conn, :edit, @item) %></span> |
+<span><%= link "Voltar", to: Routes.item_path(@conn, :index) %></span>

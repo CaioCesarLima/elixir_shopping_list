@@ -1,5 +1,7 @@
-<h1>Edit Item</h1>
+<div class="flex flex-col">
+    <h1 class="text-2xl text-center mt-5">Editar <%= @item.name %></h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.item_path(@conn, :update, @item)) %>
+    <%= render "form.html", Map.put(assigns, :action, Routes.item_path(@conn, :update, @item)) %>
 
-<span><%= link "Voltar", to: Routes.item_path(@conn, :index) %></span>
+    <span><%= link "Voltar", to: Routes.item_path(@conn, :index) %></span>
+</div>

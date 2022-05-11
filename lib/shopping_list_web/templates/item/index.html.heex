@@ -1,31 +1,32 @@
-<h1>Lista de compras</h1>
+<div class="flex flex-col align-middle text-center h-full">
+  <h1 class="mb-2 mt-5 font-mono font-bold text-2xl">Lista de compras</h1>
 
-<table>
+<table class="border-collapse mb-2">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Comprado</th>
+      <th class="border border-slate-600">Nome</th>
+      <th class="border border-slate-600">Comprado</th>
+      <th class="border border-slate-700">Ações</th>
 
-      <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for item <- @items do %>
     <tr>
-      <td><%= item.name %></td>
+      <td class="border border-slate-700 text-lg"><%= item.name %></td>
       <%= if item.bought do %>
-        <td>Comprado</td>
+        <td class="border border-slate-700">Comprado</td>
       <% else %>
-        <td>Não comprado</td>
+        <td class="border border-slate-700">Não comprado</td>
       <% end %>
-
-      <td>
-        <span><%= link "Detalhes", to: Routes.item_path(@conn, :show, item) %></span>
-        <span><%= link "Deletar", to: Routes.item_path(@conn, :delete, item), method: :delete, data: [confirm: "Você tem certeza?"] %></span>
+      
+      <td class="border border-slate-700 flex justify-center">
+        <span class="bg-blue-300 p-2 text-purple-50 w-15 h-11 rounded-lg m-2"><%= link "Deletar", to: Routes.item_path(@conn, :delete, item), method: :delete, data: [confirm: "Você tem certeza?"] %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "Novo Item", to: Routes.item_path(@conn, :new) %></span>
+<span class="bg-blue-300 p-2 text-xl text-purple-50 w-64"><%= link "Novo Item", to: Routes.item_path(@conn, :new) %></span>
+</div>

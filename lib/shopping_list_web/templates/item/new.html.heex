@@ -1,5 +1,5 @@
-<h1>New Item</h1>
+<div class="flex flex-col">
+    <h1 class="text-2xl text-center mt-5">Novo item</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.item_path(@conn, :create)) %>
-
-<span><%= link "Voltar", to: Routes.item_path(@conn, :index) %></span>
+    <%= render "form.html", Map.put(assigns, :action, Routes.item_path(@conn, :create)) %>
+</div>

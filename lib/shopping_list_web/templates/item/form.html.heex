@@ -1,19 +1,29 @@
 <.form let={f} for={@changeset} action={@action}>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+  <div class="flex flex-col text-center">
+    <%= if @changeset.action do %>
+      <div class="alert alert-danger">
+        <p>Oops, something went wrong! Please check the errors below.</p>
+      </div>
+    <% end %>
+
+    <div class="self-start my-2 mx-5 text-lg font-semibold">
+      <%= label f, :name, "Nome" %>
     </div>
-  <% end %>
+    <div class="self-stretch ">
+      <%= text_input f, :name, class: "w-full mx-2 border-blue-300 focus:border-blue-400"%>
+    </div>
+    <%= error_tag f, :name %>
 
-  <%= label f, :name %>
-  <%= text_input f, :name %>
-  <%= error_tag f, :name %>
+    <div class="self-start my-2 mx-5 text-lg font-semibold">
+      <%= label f, :bought, "Comprado" %>
+      <%= checkbox f, :bought %>
+      <%= error_tag f, :bought %>
+    </div>
+      
+      
 
-  <%= label f, :bought %>
-  <%= checkbox f, :bought %>
-  <%= error_tag f, :bought %>
-
-  <div>
-    <%= submit "Salvar" %>
+    <div>
+      <%= submit "Salvar", class: "bg-blue-500 px-3 py-2 rounded-lg text-white" %>
+    </div>
   </div>
 </.form>
